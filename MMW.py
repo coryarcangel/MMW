@@ -33,4 +33,3 @@ with open('MMW-Master.csv') as csvfile:
 		COUNTER = COUNTER + 1;
 	
 	f.close()
-t
