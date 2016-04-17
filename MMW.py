@@ -5,7 +5,7 @@ def get_sec(s):
     return int(l[0]) * 60 + int(l[1])
 
 def write(a,b,c):
-	f.write('{}\t{}\t{}\n'.format(a,b,c))
+	f.write('{}\t{}\tTony_Conrad_matmotw_{}\n'.format(a,b,c))
 	
 GB_FILE_NAME_OLD = "null"
 COUNTER = 0;
