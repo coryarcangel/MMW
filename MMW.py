@@ -19,19 +19,21 @@ with open('MMW-Master.csv') as csvfile:
 		START_TIME = row['START_TIME']
 		
 		if COUNTER == 0:
-			f = open(GB_FILE_NAME,"w")
+			filename = "%s.txt" % GB_FILE_NAME
+			f = open(filename,"w")
+			GB_FILE_NAME_OLD = GB_FILE_NAME
 		
-		if GB_FILE_NAME != GB_FILE_NAME_OLD:
+		if GB_FILE_NAME == GB_FILE_NAME_OLD:
+			write(get_sec(START_TIME.split("-")[0]),get_sec(START_TIME.split("-")[1]),MATMOTW)
+			print MATMOTW, get_sec(START_TIME.split("-")[0]),"\t",get_sec(START_TIME.split("-")[1])	
+		else:
 			f.close()
 			filename = "%s.txt" % GB_FILE_NAME
 			f = open(filename,"w")
 			write(get_sec(START_TIME.split("-")[0]),get_sec(START_TIME.split("-")[1]),MATMOTW)
 			print GB_FILE_NAME
-			print MATMOTW, get_sec(START_TIME.split("-")[0]),"\t",get_sec(START_TIME.split("-")[1])		
-		else:
-			write(get_sec(START_TIME.split("-")[0]),get_sec(START_TIME.split("-")[1]),MATMOTW)
-			print MATMOTW, get_sec(START_TIME.split("-")[0]),"\t",get_sec(START_TIME.split("-")[1])
-		
+			print MATMOTW, get_sec(START_TIME.split("-")[0]),"\t",get_sec(START_TIME.split("-")[1])	
+					
 		GB_FILE_NAME_OLD = GB_FILE_NAME
 		COUNTER = COUNTER + 1;
 	
