@@ -4,6 +4,9 @@ def get_sec(s):
     l = s.split(':')
     return int(l[0]) * 60 + int(l[1])
 
+def write(a,b,c):
+	f.write('{}\t{}\t{}\n'.format(a,b,c))
+	
 GB_FILE_NAME_OLD = "null"
 COUNTER = 0;
 
@@ -22,11 +25,11 @@ with open('MMW-Master.csv') as csvfile:
 			f.close()
 			filename = "%s.txt" % GB_FILE_NAME
 			f = open(filename,"w")
-			f.write('{}\t{}\t{}\n'.format(get_sec(START_TIME.split("-")[0]),get_sec(START_TIME.split("-")[1]),MATMOTW))
+			write(get_sec(START_TIME.split("-")[0]),get_sec(START_TIME.split("-")[1]),MATMOTW)
 			print GB_FILE_NAME
 			print MATMOTW, get_sec(START_TIME.split("-")[0]),"\t",get_sec(START_TIME.split("-")[1])		
 		else:
-			f.write('{}\t{}\t{}\n'.format(get_sec(START_TIME.split("-")[0]),get_sec(START_TIME.split("-")[1]),MATMOTW))
+			write(get_sec(START_TIME.split("-")[0]),get_sec(START_TIME.split("-")[1]),MATMOTW)
 			print MATMOTW, get_sec(START_TIME.split("-")[0]),"\t",get_sec(START_TIME.split("-")[1])
 		
 		GB_FILE_NAME_OLD = GB_FILE_NAME
